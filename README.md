@@ -40,6 +40,17 @@ usuário ainda precisa habilitá-la (app Extensões ou
 `gnome-extensions enable thermy@alexandro`). Para uma nova versão, aumente
 `version` em `metadata.json` antes de gerar o pacote.
 
+### Release no GitHub
+
+Ao enviar uma tag `vN` (igual ao `version` do `metadata.json`), o GitHub
+Actions gera o `.deb` e o `.zip` da extensão e publica um release:
+
+```sh
+git tag v2 && git push origin main v2
+```
+
+O `.zip` pode ser instalado com `gnome-extensions install thermy@alexandro.v2.shell-extension.zip`.
+
 Se o link criado pelo `install.sh` existir, ele tem prioridade sobre o pacote.
 
 ## Desinstalar

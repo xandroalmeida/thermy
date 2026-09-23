@@ -16,12 +16,12 @@ journalctl -f -o cat /usr/bin/gnome-shell            # runtime errors / logs
 ```
 
 - On Wayland the shell loads extension code only at login. Every code change needs a logout/login or a nested shell.
-- Bump `version` in `metadata.json` before building a new `.deb`.
+- **Releases:** `.github/workflows/release.yml` runs on pushing a `v*` tag. The tag must equal `v<version>` from `metadata.json`, or the job fails. It builds the `.deb` plus a `gnome-extensions`-style `.zip` and publishes both with `gh release create --generate-notes`. To cut a release: bump `version`, commit, `git tag vN && git push origin main vN`.
 - The `install.sh` symlink in `~/.local` takes precedence over the system-wide `.deb` install in `/usr/share/gnome-shell/extensions/`.
 
 ## Naming constraints
 
-- Both scripts derive the UUID from the **folder name** (`basename`), so the directory must stay named `thermy@alexandro` to match `uuid` in `metadata.json`.
+- Both scripts read the UUID and version from `metadata.json` (via `python3`), so the checkout folder name doesn't matter.
 - CSS classes use the `thermy-` prefix. `extension.js` adds and removes `thermy-warm`/`thermy-hot` on the panel button, and `stylesheet.css` styles the label and icon beneath it.
 - The `.deb` declares `Conflicts`/`Replaces: gnome-shell-extension-cpu-temp` (the project's former name).
 

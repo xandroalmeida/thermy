@@ -3,7 +3,7 @@
 set -euo pipefail
 
 SRC="$(cd "$(dirname "$0")" && pwd)"
-UUID="$(basename "$SRC")"
+UUID="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["uuid"])' "$SRC/metadata.json")"
 PKG=gnome-shell-extension-thermy
 VERSION="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"])' "$SRC/metadata.json")"
 MAINTAINER="Alexandro Almeida <xandroalmeida@gmail.com>"
