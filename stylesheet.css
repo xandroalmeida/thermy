@@ -1,0 +1,27 @@
+.thermy-box {
+  spacing: 4px;
+}
+
+.thermy-label {
+  font-feature-settings: "tnum";
+}
+
+.thermy-warm .thermy-label,
+.thermy-warm .thermy-icon {
+  color: #f6d32d;
+}
+
+.thermy-hot .thermy-label,
+.thermy-hot .thermy-icon {
+  color: #ff7b63;
+  font-weight: bold;
+}
+
+.thermy-row-value {
+  font-feature-settings: "tnum";
+  color: #c0bfbc;
+}
+
+.thermy-section-title {
+  font-weight: bold;
+}

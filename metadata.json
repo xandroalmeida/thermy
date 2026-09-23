@@ -1,0 +1,8 @@
+{
+  "uuid": "thermy@alexandro",
+  "name": "Thermy",
+  "description": "Mostra a temperatura da CPU na barra superior, com detalhes por núcleo, ventoinha e frequência no menu.",
+  "version": 1,
+  "shell-version": ["45", "46", "47", "48"],
+  "url": ""
+}
